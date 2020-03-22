@@ -12,8 +12,7 @@ public class MiniGame1Uses extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        Stage secondaryStage = new Stage();
-        game.starting(primaryStage,secondaryStage);
+        game.starting(primaryStage);
 
 
     }

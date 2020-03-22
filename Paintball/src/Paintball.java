@@ -71,7 +71,7 @@ public class Paintball  {
             });}
 
 
-    public void starting(Stage primaryStage,Stage secondaryStage) {
+    public void starting(Stage primaryStage) {
         setGroup(group);
             primaryStage.setScene(showRules);
             primaryStage.setTitle("Paintball");

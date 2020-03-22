@@ -1,5 +1,4 @@
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -22,7 +21,6 @@ public class Hide {
         Text title= new Text("Hiding\nposition\nplayer "+ Integer.toString(player+1));
         title.setFont(Font.font("Arial", FontWeight.BLACK, 22));
         groupForGame.add(title,1,0);
-        Paintball.groupForGame = groupForGame;
         groupForGame.setVgap(20);
         groupForGame.setHgap(20);
         Rectangle hidePosition1 = new Rectangle(10,10,100,100);
@@ -66,11 +64,11 @@ public class Hide {
         });
         hidePosition3Btn.setOnAction(actionEvent -> {
             if(player!=1) {
-                hidingPosition[player] = "1";
+                hidingPosition[player] = "3";
                 player = 1;
                 title.setText("Hiding\nposition\nplayer "+ Integer.toString(player+1));
             }else{
-                hidingPosition[player] = "2";
+                hidingPosition[player] = "3";
                 groupForGame.add(OK,3,2);
             }
         });

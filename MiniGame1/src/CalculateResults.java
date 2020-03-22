@@ -2,6 +2,8 @@ public class CalculateResults {
 
     String[] player1;
     String[] player2;
+    int round =0;
+    String [] lastRound;
 
     public CalculateResults(String[] player1, String[] player2){
         this.player1=player1;
@@ -15,13 +17,19 @@ public class CalculateResults {
         }else{
             return "tie";
         }
+    }
+}
+    public void advance (String player){
 
     }
-
-}
     public void showScore(){
         switch (winner()){
             case "player1":{
+                if(round==0){
+                    round=1;
+                }else{
+
+                }
 
             }
             case "player2":{

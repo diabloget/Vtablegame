@@ -21,7 +21,6 @@ public class Shoot {
         Text title= new Text("Shooting\nposition\nplayer "+ Integer.toString(player+1));
         title.setFont(Font.font("Arial", FontWeight.BLACK, 22));
         groupForGame.add(title,1,0);
-        Paintball.groupForGame = groupForGame;
         groupForGame.setVgap(20);
         groupForGame.setHgap(20);
         Rectangle hidePosition1 = new Rectangle(10,10,100,100);

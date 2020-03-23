@@ -5,11 +5,12 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
-public class Connect4 extends Application{
-    private GridPane paneForGame =  new GridPane();
+public class Connect4 {
+    private GridPane gamePane =  new GridPane();
     private Circle[][] positions = new Circle[6][7];
-    public Scene connect4 =  new Scene(paneForGame, 515, 585);
+    public Scene connect4 =  new Scene(gamePane, 600, 515);
     public String[][] gameMatrix=new String[6][7];
+    Controller cont = new Controller(positions);
 
     public void setGameMatrix(String[][] gameMatrix) {
         this.gameMatrix = gameMatrix;
@@ -21,32 +22,22 @@ public class Connect4 extends Application{
     }
 
 
-    public void refreshColor(){
-        for(int y=0; y<6; y++){
-            for(int x=0; x<7; x++){
-                if(gameMatrix[y][x].equals("black")){
-                    positions[y][x].setFill(Color.BLACK);
-                    paneForGame.add(positions[y][x],y,x);
-                }else {
-                    if(gameMatrix[y][x].equals("blue")){
-                        positions[y][x].setFill(Color.BLUE);
-                        paneForGame.add(positions[y][x],y,x);
-                    }else {
-                        if(gameMatrix[y][x].equals("red")){
-                            positions[y][x].setFill(Color.RED);
-                            paneForGame.add(positions[y][x],y,x);
-                        }}
-                }
-            }
-        }
 
-    }
     public void settingSceneC4(Stage primaryStage){
         createCircles();
-        refreshColor();
+        cont.refreshColor(gamePane, gameMatrix);
+        addButtons();
+
     }
 
+    private void addButtons(){
+        for(int y=0; y<6; y++) {
+            for ( int x = 0; x < 7; x++ ) {
+                gamePane.add(positions[ y ][ x ], x, y);
 
+            }
+        }
+    }
 
 
     private void createCircles() {
@@ -98,17 +89,17 @@ public class Connect4 extends Application{
         positions[3]=new Circle[]{circle30, circle31, circle32, circle33, circle34, circle35, circle36};
         positions[4]=new Circle[]{circle40, circle41, circle42, circle43, circle44, circle45, circle46};
         positions[5]=new Circle[]{circle50, circle51, circle52, circle53, circle54, circle55, circle56};
-        paneForGame.setHgap(5);
+        gamePane.setHgap(5);
 
     }
-    public static void main(String args[]){
-        launch(args);
-    }
-    @Override
-    public void start(Stage primaryStage) {
+
+    public void starting(Stage primaryStage) {
         setGameMatrix(gameMatrix);
         settingSceneC4(primaryStage);
         primaryStage.setScene(connect4);
+        cont.addingButtons(gameMatrix, gamePane);
         primaryStage.show();
     }
+
+
 }

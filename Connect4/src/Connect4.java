@@ -6,32 +6,30 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 public class Connect4 {
-    private GridPane gamePane =  new GridPane();
-    private Circle[][] positions = new Circle[6][7];
-    public Scene connect4 =  new Scene(gamePane, 600, 515);
-    public String[][] gameMatrix=new String[6][7];
+    private GridPane gamePane = new GridPane();
+    private Circle[][] positions = new Circle[ 6 ][ 7 ];
+    public Scene connect4 = new Scene(gamePane, 600, 515);
+    public String[][] gameMatrix = new String[ 6 ][ 7 ];
     Controller cont = new Controller(positions);
 
     public void setGameMatrix(String[][] gameMatrix) {
         this.gameMatrix = gameMatrix;
-        for(int y=0; y<6; y++){
-            for(int x=0; x<7; x++){
-                gameMatrix[y][x]="black";
+        for ( int y = 0; y < 6; y++ ) {
+            for ( int x = 0; x < 7; x++ ) {
+                gameMatrix[ y ][ x ] = "black";
             }
         }
     }
 
 
-
-    public void settingSceneC4(Stage primaryStage){
+    public void settingSceneC4(Stage primaryStage) {
         createCircles();
         cont.refreshColor(gamePane, gameMatrix);
         addButtons();
-
     }
 
-    private void addButtons(){
-        for(int y=0; y<6; y++) {
+    private void addButtons() {
+        for ( int y = 0; y < 6; y++ ) {
             for ( int x = 0; x < 7; x++ ) {
                 gamePane.add(positions[ y ][ x ], x, y);
 
@@ -83,12 +81,12 @@ public class Connect4 {
         Circle circle54 = new Circle(40.5);
         Circle circle55 = new Circle(40.5);
         Circle circle56 = new Circle(40.5);
-        positions[0]=new Circle[]{circle00, circle01, circle02, circle03, circle04, circle05, circle06};
-        positions[1]=new Circle[]{circle10, circle11, circle12, circle13, circle14, circle15, circle16};
-        positions[2]=new Circle[]{circle20, circle21, circle22, circle23, circle24, circle25, circle26};
-        positions[3]=new Circle[]{circle30, circle31, circle32, circle33, circle34, circle35, circle36};
-        positions[4]=new Circle[]{circle40, circle41, circle42, circle43, circle44, circle45, circle46};
-        positions[5]=new Circle[]{circle50, circle51, circle52, circle53, circle54, circle55, circle56};
+        positions[ 0 ] = new Circle[]{circle00, circle01, circle02, circle03, circle04, circle05, circle06};
+        positions[ 1 ] = new Circle[]{circle10, circle11, circle12, circle13, circle14, circle15, circle16};
+        positions[ 2 ] = new Circle[]{circle20, circle21, circle22, circle23, circle24, circle25, circle26};
+        positions[ 3 ] = new Circle[]{circle30, circle31, circle32, circle33, circle34, circle35, circle36};
+        positions[ 4 ] = new Circle[]{circle40, circle41, circle42, circle43, circle44, circle45, circle46};
+        positions[ 5 ] = new Circle[]{circle50, circle51, circle52, circle53, circle54, circle55, circle56};
         gamePane.setHgap(5);
 
     }

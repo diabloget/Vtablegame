@@ -8,6 +8,7 @@ public class Controller {
     Controller(Circle[][] positions){
         this.positions=positions;
     }
+    DecideWinner winner = new DecideWinner();
     private Circle[][] positions;
     private String color = "red";
     int[] rows = new int[]{5,5,5,5,5,5,5};
@@ -46,34 +47,55 @@ public class Controller {
         addButtonsAux(gamePane, column4Btn,3 );
         addButtonsAux(gamePane, column5Btn,4 );
         addButtonsAux(gamePane, column6Btn,5 );
-        addButtonsAux(gamePane, column7Btn,5 );
+        addButtonsAux(gamePane, column7Btn,6 );
         column1Btn.setOnAction(actionEvent -> {
             changeRow(0, gameMatrix);
             refreshColor(gamePane, gameMatrix);
+            if(winner.isWinner(0,rows[0]+1,gameMatrix)){
+                System.out.println("winner");
+            }
         });
         column2Btn.setOnAction(actionEvent -> {
             changeRow(1, gameMatrix);
             refreshColor(gamePane, gameMatrix);
+            if(winner.isWinner(1,rows[1]+1,gameMatrix)){
+                System.out.println("winner");
+            }
         });
         column3Btn.setOnAction(actionEvent -> {
             changeRow(2, gameMatrix);
             refreshColor(gamePane, gameMatrix);
+            if(winner.isWinner(2,rows[2]+1,gameMatrix)){
+                System.out.println("winner");
+            }
         });
         column4Btn.setOnAction(actionEvent -> {
             changeRow(3,gameMatrix);
             refreshColor(gamePane, gameMatrix);
+            if(winner.isWinner(3,rows[3]+1,gameMatrix)){
+                System.out.println("winner");
+            }
         });
         column5Btn.setOnAction(actionEvent -> {
             changeRow(4, gameMatrix);
             refreshColor(gamePane, gameMatrix);
+            if(winner.isWinner(4,rows[4]+1,gameMatrix)){
+                System.out.println("winner");
+            }
         });
         column6Btn.setOnAction(actionEvent -> {
             changeRow(5, gameMatrix);
             refreshColor(gamePane, gameMatrix);
+            if(winner.isWinner(5,rows[5]+1,gameMatrix)){
+                System.out.println("winner");
+            }
         });
         column7Btn.setOnAction(actionEvent -> {
             changeRow(6, gameMatrix);
             refreshColor(gamePane, gameMatrix);
+            if(winner.isWinner(6,rows[6]+1,gameMatrix)){
+                System.out.println("winner");
+            }
 
         });
     }
@@ -85,10 +107,13 @@ public class Controller {
     }
 
     public void changeRow(int column, String[][] gameMatrix){
-        gameMatrix[rows[column]][column]=color;
-        rows[column]--;
-        changeColor();
-
+        if(rows[column]>=0) {
+            gameMatrix[ rows[ column ] ][ column ] = color;
+            rows[ column ]--;
+            changeColor();
+        }else{
+            System.out.println("error");
+        }
     }
 
     private void changeColor(){

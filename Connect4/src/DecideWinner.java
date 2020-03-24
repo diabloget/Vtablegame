@@ -3,52 +3,62 @@ public class DecideWinner {
     public boolean isWinner(int column, int row, String[][] gameMatrix){
         return winnerHorizontal(row,column, gameMatrix) || winnerVertical(column, row, gameMatrix) || winnerDiagonal(column, row, gameMatrix);
     }
-    public boolean winnerDiagonal(int column, int row, String[][] gameMatrix){
+    public boolean winnerDiagonal(int column, int row, String[][] gameMatrix) {
         int counterA = 0;
         int counterB = 0;
-        for(int y = row; y>=0; y--){
-            for(int x = column; x<=6; x++){
-                if(gameMatrix[row][column].equals(gameMatrix[y][x])){
-                    counterA++;
-                }else{
-                    break;
-                }
+        int y = row;
+        int x = column;
+        while (y >= 0 && x <= 6) {
+            if ( gameMatrix[ row ][ column ].equals(gameMatrix[ y ][ x ]) ) {
+                counterA++;
+                y--;
+                x++;
+            } else {
+                break;
             }
         }
-        for(int y = row; y<=5; y++){
-            for(int x = column; x>=0; x--){
-                if(gameMatrix[row][column].equals(gameMatrix[y][x])){
-                    counterB++;
-                }else{
-                    break;
-                }
+        y = row;
+        x = column;
+        while (y<=5 && x>=0) {
+            if ( gameMatrix[ row ][ column ].equals(gameMatrix[ y ][ x ]) ) {
+                counterB++;
+                y++;
+                x--;
+            } else {
+                break;
             }
+
         }
-        if(counterA+counterB==4){
+        if(counterA+counterB==5){
             System.out.println("diagonal1");
             return true;
         }else{
             counterA = 0;
             counterB = 0;
-            for(int y = row; y>=0; y--){
-                for(int x = column; x>=0; x--){
-                    if(gameMatrix[row][column].equals(gameMatrix[y][x])){
-                        counterA++;
-                    }else{
-                        break;
-                    }
+            y = row;
+            x = column;
+            while (y >= 0 && x>=0 ) {
+                if ( gameMatrix[ row ][ column ].equals(gameMatrix[ y ][ x ]) ) {
+                    counterA++;
+                    y--;
+                    x--;
+                } else {
+                    break;
                 }
             }
-            for(int y = row; y<=5; y++){
-                for(int x = column; x<=6; x++){
-                    if(gameMatrix[row][column].equals(gameMatrix[y][x])){
-                        counterB++;
-                    }else{
-                        break;
-                    }
+            y = row;
+            x = column;
+            while (y<=5 && x <= 6) {
+                if ( gameMatrix[ row ][ column ].equals(gameMatrix[ y ][ x ]) ) {
+                    counterB++;
+                    y++;
+                    x++;
+                } else {
+                    break;
                 }
+
             }
-            if(counterA+counterB==4){
+            if(counterA+counterB==5){
                 System.out.println("diagonal2");
                 return true;
             }else{

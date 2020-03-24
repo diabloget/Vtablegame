@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Connect4/Connect4.iml" filepath="$PROJECT_DIR$/Connect4/Connect4.iml" />
       <module fileurl="file://$PROJECT_DIR$/Paintball/Paintball.iml" filepath="$PROJECT_DIR$/Paintball/Paintball.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Simon/Simon.iml" filepath="$PROJECT_DIR$/Simon/Simon.iml" />
       <module fileurl="file://$PROJECT_DIR$/Vtablegame.iml" filepath="$PROJECT_DIR$/Vtablegame.iml" />
     </modules>
   </component>
